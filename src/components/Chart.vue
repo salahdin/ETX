@@ -1,7 +1,7 @@
 <template>
   <v-container>
-      <v-row>
-          <v-col md="12">
+      <v-row justify="center" align="center">
+          <v-col cols="12" md="12" sm="12">
             <v-sparkline
             :value="newtable"
             :gradient="gradient"
@@ -20,7 +20,7 @@
             </template>
             </v-sparkline>
           </v-col>
-          <v-btn>update</v-btn>
+          <v-btn @click="update">update</v-btn>
       </v-row>
   </v-container>
 </template>
@@ -53,7 +53,7 @@ const gradients = [
       autoLineWidth: true,
       newtable: []
     }),
-    created(){
+    mounted(){
       this.loadGraphData(this.currency)
     },
     computed:{
@@ -64,7 +64,9 @@ const gradients = [
     },
     methods: {
       update(){
-        this.$forceUpdate()
+        this.newtable = []
+        console.log(this.currency)
+        this.loadGraphData(this.currency)
       },
 
       loadGraphData(currency) {

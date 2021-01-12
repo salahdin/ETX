@@ -21,7 +21,7 @@
         ></v-select>
       </v-col>
 
-      <v-col cols="12" md="12" sm="12">
+      <v-col cols="12" md="12" sm="12" xs="12">
       <div class="text-center">
         <v-dialog v-model="dialog" width="700">
           <template v-slot:activator="{ on, attrs }">
@@ -47,7 +47,6 @@
               <v-spacer></v-spacer>
               <p v-for="(value, key) in officialData" :key="key">official : {{ multiply(value.toFixed(2),user_input) }} ETB</p>
             </v-card-title>
-
             <v-divider></v-divider>
 
             <v-card-actions>
@@ -76,12 +75,18 @@ export default {
       airresponse: null,
       dialog: false,
       officialData: null,
+      officialETB: {},
     };
   },
-
   mounted() {
     this.loadItems()
     this.select = this.newtable[0]
+  },
+  computed:{
+    round(value){
+      return value.toFixed(2)
+    }
+
   },
   methods: {
     loadItems() {
@@ -101,7 +106,6 @@ export default {
               price_min: i.fields.price_min,
               name: i.fields.name,
             }
-            console.log(process.env.VUE_APP_AIRTABLE_API)
             this.newtable.push(x)
           }
         })
@@ -123,9 +127,10 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+        
     },
     multiply(a, b) {
-      return a * b;
+      return Math.round(a * b,1);
     },
   },
 };

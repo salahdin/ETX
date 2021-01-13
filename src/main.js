@@ -4,6 +4,9 @@ import './registerServiceWorker'
 import router from './router'
 import vuetify from './plugins/vuetify'
 import {store} from './store/index'
+import Meta from 'vue-meta'
+
+Vue.use(Meta)
 
 Vue.config.productionTip = false
 

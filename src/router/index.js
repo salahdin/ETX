@@ -8,12 +8,14 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {title:"birr exchange calculator with black market and official prices ", auth: false}
   },
   {
     path: '/calculator',
     name: 'Calculator',
-    component: () => import('../components/Calculator.vue')
+    component: () => import('../components/Calculator.vue'),
+    meta: {title:"birr exchange calculator ", auth: false}
   }
 ]
 

@@ -58,14 +58,18 @@ const gradients = [
     },
     computed:{
       currency(){
-        console.log(this.$store.state.select.currency)
         return this.$store.state.select.currency
       }
+    },
+    watch:{
+      newtable(){
+       
+      }
+
     },
     methods: {
       update(){
         this.newtable = []
-        console.log(this.currency)
         this.loadGraphData(this.currency)
       },
 

@@ -1,6 +1,6 @@
 {
-    "name": "Ethiopian currency exchange",
-    "short_name": "Ethiopian exchange",
+    "name": "Exbirr | Ethiopian currency exchange",
+    "short_name": "Exbirr",
     "start_url": "index.html",
     "display": "standalone",
     "theme_color": "#f2aa4c",
